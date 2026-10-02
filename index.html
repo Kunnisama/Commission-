@@ -1,0 +1,271 @@
+```html
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mimi Pastel Studio | Art Commission Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        pastel: {
+                            pink: '#FFE5EC',
+                            rose: '#FFB3C6',
+                            hotpink: '#FF80A0',
+                            deep: '#FF4D6D',
+                            cream: '#FFF0F3',
+                            purple: '#F3E8FF',
+                            softdark: '#2B1E23'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Mali', 'cursive'],
+                        body: ['Itim', 'cursive', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Mali & Itim -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Mali:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Itim', cursive, sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'Mali', cursive;
+        }
+        
+        /* Custom Kawaii Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFE5EC;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FFB3C6;
+            border-radius: 20px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF80A0;
+        }
+
+        /* Glassmorphism Pastel Effect */
+        .pastel-glass {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 179, 198, 0.4);
+        }
+        .dark .pastel-glass {
+            background: rgba(43, 30, 35, 0.85);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 128, 160, 0.2);
+        }
+
+        /* Float Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(2deg); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Soft Glow Shadow */
+        .pink-glow {
+            box-shadow: 0 8px 25px -5px rgba(255, 128, 160, 0.35);
+        }
+        .pink-glow-lg {
+            box-shadow: 0 12px 35px -8px rgba(255, 77, 109, 0.45);
+        }
+    </style>
+</head>
+<body class="bg-pastel-cream text-slate-700 dark:bg-slate-900 dark:text-pastel-pink transition-colors duration-300 min-h-screen flex flex-col selection:bg-pastel-rose selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-40 w-full pastel-glass transition-all border-b border-pastel-rose/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand / Artist Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-pastel-hotpink to-pastel-rose flex items-center justify-center text-white text-2xl shadow-md group-hover:scale-110 group-hover:rotate-6 transition-transform">
+                        🎀
+                    </div>
+                    <div>
+                        <span class="font-heading font-bold text-2xl bg-gradient-to-r from-pastel-deep via-pastel-hotpink to-purple-500 bg-clip-text text-transparent">Mimi Studio</span>
+                        <span class="block text-xs text-pastel-hotpink font-medium dark:text-pastel-rose">✨ Digital Artist & Illustrator</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu Nav -->
+                <nav class="hidden lg:flex items-center space-x-1 text-base font-medium">
+                    <a href="#gallery" class="px-3.5 py-2 rounded-2xl hover:bg-pastel-pink dark:hover:bg-slate-800 hover:text-pastel-deep transition">🎨 ผลงาน</a>
+                    <a href="#calculator" class="px-3.5 py-2 rounded-2xl hover:bg-pastel-pink dark:hover:bg-slate-800 hover:text-pastel-deep transition">🧮 คำนวณราคา</a>
+                    <a href="#queue" class="px-3.5 py-2 rounded-2xl hover:bg-pastel-pink dark:hover:bg-slate-800 hover:text-pastel-deep transition flex items-center gap-1.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span> 📌 เช็กคิว
+                    </a>
+                    <a href="#tos" class="px-3.5 py-2 rounded-2xl hover:bg-pastel-pink dark:hover:bg-slate-800 hover:text-pastel-deep transition">📜 ข้อตกลง</a>
+                    <a href="#faq" class="px-3.5 py-2 rounded-2xl hover:bg-pastel-pink dark:hover:bg-slate-800 hover:text-pastel-deep transition">❓ FAQ</a>
+                </nav>
+
+                <!-- Actions: Theme Switcher & Commission Button -->
+                <div class="flex items-center gap-3">
+                    <button id="themeToggleBtn" onclick="toggleTheme()" title="สลับธีม" class="p-2.5 rounded-2xl bg-white dark:bg-slate-800 text-pastel-hotpink dark:text-amber-300 border-2 border-pastel-rose/40 hover:scale-105 transition pink-glow">
+                        <i id="themeIcon" class="fa-solid fa-moon text-lg"></i>
+                    </button>
+                    <a href="#order" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-2xl font-heading font-bold text-white bg-gradient-to-r from-pastel-hotpink to-pastel-deep hover:from-pastel-deep hover:to-pastel-hotpink pink-glow hover:scale-105 transition active:scale-95">
+                        <i class="fa-solid fa-heart mr-2 text-sm"></i> สั่งวาดภาพ
+                    </a>
+                    <!-- Mobile Hamburger Button -->
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-2xl text-pastel-deep dark:text-pastel-pink hover:bg-pastel-pink dark:hover:bg-slate-800">
+                        <i class="fa-solid fa-bars-staggered text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Nav -->
+        <div id="mobileMenu" class="hidden lg:hidden px-4 pt-2 pb-6 space-y-2 border-t border-pastel-rose/30 bg-white/95 dark:bg-slate-900/95 font-medium">
+            <a href="#gallery" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-slate-700 dark:text-pastel-pink hover:bg-pastel-pink dark:hover:bg-slate-800">🎨 ผลงาน (Gallery)</a>
+            <a href="#calculator" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-slate-700 dark:text-pastel-pink hover:bg-pastel-pink dark:hover:bg-slate-800">🧮 คำนวณราคา (Calculator)</a>
+            <a href="#queue" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-slate-700 dark:text-pastel-pink hover:bg-pastel-pink dark:hover:bg-slate-800">📌 เช็กคิวงาน (Queue Tracker)</a>
+            <a href="#tos" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-slate-700 dark:text-pastel-pink hover:bg-pastel-pink dark:hover:bg-slate-800">📜 ข้อตกลง (TOS)</a>
+            <a href="#faq" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-slate-700 dark:text-pastel-pink hover:bg-pastel-pink dark:hover:bg-slate-800">❓ คำถามพบบ่อย (FAQ)</a>
+            <a href="#order" onclick="toggleMobileMenu()" class="block w-full text-center py-3 rounded-2xl font-heading font-bold text-white bg-pastel-deep shadow-md">💌 สั่งวาดภาพคอมมิชชัน</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- HERO SECTION -->
+        <section class="relative py-12 md:py-20 overflow-hidden">
+            <!-- Decorative Background Blobs -->
+            <div class="absolute top-10 left-10 w-72 h-72 bg-pastel-rose/30 rounded-full blur-3xl -z-10 animate-pulse"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-purple-200/40 dark:bg-purple-900/20 rounded-full blur-3xl -z-10"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Left Column: Artist Bio -->
+                    <div class="text-center lg:text-left space-y-6">
+                        <!-- Status Badge -->
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-slate-800 border-2 border-pastel-rose/50 pink-glow">
+                            <span class="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></span>
+                            <span class="font-bold text-sm text-pastel-deep dark:text-pastel-hotpink">COMMISSION OPEN (เหลือ 2/5 คิว) ✨</span>
+                        </div>
+
+                        <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-800 dark:text-white leading-tight">
+                            เนรมิตตัวละครสุดน่ารัก <br class="hidden sm:inline">
+                            <span class="bg-gradient-to-r from-pastel-deep via-pastel-hotpink to-purple-400 bg-clip-text text-transparent">ในสไตล์พาสเทลหวานซ่อนเปรี้ยว 🌸</span>
+                        </h1>
+
+                        <p class="text-lg text-slate-600 dark:text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                            สวัสดีค่ะ! มิมิเองนะคะ รับวาดภาพประกอบ Fanart, Original Character (OC), Chibi และ Character Design โทนสีหวานละมุน น่ารักสดใส พร้อมบริการอย่างใส่ใจทุกขั้นตอน 💕
+                        </p>
+
+                        <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2 font-heading font-bold">
+                            <a href="#order" class="px-8 py-4 rounded-3xl bg-gradient-to-r from-pastel-hotpink to-pastel-deep hover:from-pastel-deep hover:to-pastel-hotpink text-white text-lg pink-glow-lg hover:scale-105 transition transform">
+                                💖 สั่งวาดรูปคลิกเลย!
+                            </a>
+                            <a href="#gallery" class="px-8 py-4 rounded-3xl bg-white dark:bg-slate-800 text-pastel-deep dark:text-pastel-pink border-2 border-pastel-rose/50 hover:bg-pastel-pink/30 transition pink-glow">
+                                🎨 ชมผลงานก่อนได้นะ
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Featured Kawaii Card -->
+                    <div class="flex justify-center relative">
+                        <div class="relative w-full max-w-md p-5 rounded-[2.5rem] bg-white dark:bg-slate-800 border-4 border-pastel-rose/40 pink-glow-lg animate-float">
+                            <!-- Kawaii Badge Tag -->
+                            <div class="absolute -top-4 -right-2 bg-pastel-deep text-white font-heading text-xs font-bold px-4 py-1.5 rounded-full rotate-12 shadow-md z-10">
+                                💖 Featured Art
+                            </div>
+
+                            <div class="relative overflow-hidden rounded-[2rem] aspect-[4/5] bg-pastel-pink">
+                                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" alt="Featured Illustration" class="w-full h-full object-cover">
+                                <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl pastel-glass text-slate-800 dark:text-white flex justify-between items-center">
+                                    <div>
+                                        <p class="font-heading font-bold text-sm">Pastel Princess</p>
+                                        <p class="text-xs text-slate-500 dark:text-slate-300">Full Illustration Scale</p>
+                                    </div>
+                                    <span class="text-2xl">🦄</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ART GALLERY SHOWCASE -->
+        <section id="gallery" class="py-16 bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="font-heading text-pastel-deep dark:text-pastel-hotpink font-bold text-lg">🎀 Portfolio</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-800 dark:text-white mt-1">แกลเลอรีผลงาน (Gallery)</h2>
+                    <p class="text-slate-500 dark:text-slate-400 mt-2">คลิกเลือกหมวดหมู่ที่สนใจ เพื่อรับชมตัวอย่างงานวาดได้เลยค่ะ(⁠´⁠∩⁠｡⁠•⁠ ⁠ᵕ⁠ ⁠•⁠｡⁠∩⁠`⁠)</p>
+
+                    <!-- Gallery Filter Buttons -->
+                    <div class="flex flex-wrap justify-center gap-2.5 mt-6" id="galleryFilters">
+                        <button onclick="filterGallery('all', this)" class="filter-btn active px-5 py-2.5 rounded-2xl font-heading font-bold text-sm bg-pastel-deep text-white pink-glow transition">✨ ทั้งหมด</button>
+                        <button onclick="filterGallery('chibi', this)" class="filter-btn px-5 py-2.5 rounded-2xl font-heading font-bold text-sm bg-white dark:bg-slate-800 text-slate-600 dark:text-pastel-pink border border-pastel-rose/40 hover:bg-pastel-pink/50 transition">🧸 Chibi Style</button>
+                        <button onclick="filterGallery('full-art', this)" class="filter-btn px-5 py-2.5 rounded-2xl font-heading font-bold text-sm bg-white dark:bg-slate-800 text-slate-600 dark:text-pastel-pink border border-pastel-rose/40 hover:bg-pastel-pink/50 transition">🌸 Full Illustration</button>
+                        <button onclick="filterGallery('character', this)" class="filter-btn px-5 py-2.5 rounded-2xl font-heading font-bold text-sm bg-white dark:bg-slate-800 text-slate-600 dark:text-pastel-pink border border-pastel-rose/40 hover:bg-pastel-pink/50 transition">👗 Character Sheet</button>
+                        <button onclick="filterGallery('sketch', this)" class="filter-btn px-5 py-2.5 rounded-2xl font-heading font-bold text-sm bg-white dark:bg-slate-800 text-slate-600 dark:text-pastel-pink border border-pastel-rose/40 hover:bg-pastel-pink/50 transition">✏️ Sketch / Lineart</button>
+                    </div>
+                </div>
+
+                <!-- Gallery Items Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="galleryGrid">
+                    <!-- Item 1: Chibi -->
+                    <div class="gallery-item chibi group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1000&q=80', 'Chibi Couple Soft Pastel', 'สไตล์ Chibi ย่อส่วน 2.5 ส่วน ลงสีพาสเทลหวานๆ เหมาะทำสติ๊กเกอร์')">
+                        <div class="relative overflow-hidden rounded-3xl bg-pastel-pink aspect-square pink-glow group-hover:scale-105 transition duration-300">
+                            <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80" alt="Chibi Art" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-pastel-deep/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+                                <span class="text-xs font-bold text-pastel-pink uppercase">Chibi Style</span>
+                                <h3 class="font-heading font-bold text-lg">Chibi Couple Soft Pastel</h3>
+                                <p class="text-xs opacity-90">🔍 คลิกเพื่อดูรูปใหญ่</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Full Art -->
+                    <div class="gallery-item full-art group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1000&q=80', 'Fantasy Sunset Portrait', 'Full Illustration ละเอียด จัดเต็มแสงเงา และรายละเอียดฉากหลังดอกไม้')">
+                        <div class="relative overflow-hidden rounded-3xl bg-pastel-pink aspect-square pink-glow group-hover:scale-105 transition duration-300">
+                            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80" alt="Full Art" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-pastel-deep/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+                                <span class="text-xs font-bold text-pastel-pink uppercase">Full Illustration</span>
+                                <h3 class="font-heading font-bold text-lg">Fantasy Sunset Portrait</h3>
+                                <p class="text-xs opacity-90">🔍 คลิกเพื่อดูรูปใหญ่</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Character Sheet -->
+                    <div class="gallery-item character group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1000&q=80', 'VTuber Character Concept Sheet', 'การ์ดตั้งค่าตัวละคร ออกแบบหน้า-หลัง พร้อมเจาะลึกเครื่องแต่งกาย')">
+                        <div class="relative overflow-hidden rounded-3xl bg-pastel-pink aspect-square pink-glow group-hover:scale-105 transition duration-300">
+                            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80" alt="Character Sheet" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-pastel-deep/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+                                <span class="text-xs font-bold text-pastel-pink uppercase">Character Design</span>
+                                <h3 class="font-heading font-bold text-lg">VTuber Concept Sheet</h3>
+                                <p class="text-xs opacity-90">🔍 คลิกเพื่อดูรูปใหญ่</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4: Sketch -->
+                    <div class="gallery-item sketch group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=1000&q=80', 'Neon Glow Lineart Bust-up', 'สเก็ตช์ภาพตัดเส้นเนียนกริบ พร้อมลงสีรองแสงเงาบางเบา')">
+                        <div class="relative overflow-hidden rounded-3xl bg-pastel-pink aspect-square pink-glow group-hover:scale-105 transition duration-300">
+                            <img src="https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=600&q=80" alt="Lineart Sketch" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-pastel-deep/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+                                <span class="text-xs font-bold text-pastel-pink uppercase">Sketch / Lineart</span>
+                                <h3
