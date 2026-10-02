@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Art Commission Portfolio</title>
+    <title>Grand Art Commission Studio ✨</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Mali & Itim -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Mali:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Mali:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -18,12 +18,14 @@
             theme: {
                 extend: {
                     colors: {
-                        pastel: {
-                            pink: '#FFB6C1',
-                            light: '#FFF0F5',
-                            dark: '#FF69B4',
-                            accent: '#FF1493',
-                            bg: '#FFF5F7'
+                        pink: {
+                            50: '#fff0f5',
+                            100: '#ffe4e1',
+                            200: '#ffc0cb',
+                            300: '#ffb6c1',
+                            400: '#ff69b4',
+                            500: '#ff1493',
+                            600: '#db7093',
                         }
                     },
                     fontFamily: {
@@ -35,255 +37,405 @@
         }
     </script>
     <style>
-        body { font-family: 'Itim', sans-serif; background-color: #FFF5F7; }
+        body { font-family: 'Itim', sans-serif; background: linear-gradient(135deg, #fff0f5 0%, #fff5f7 100%); }
         h1, h2, h3, h4, h5, h6, .font-mali { font-family: 'Mali', cursive; }
-        .glass-card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); }
+        .glass-card { background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(12px); border: 1px solid rgba(255, 182, 193, 0.4); }
+        .pink-gradient-text { background: linear-gradient(45deg, #ff1493, #ff69b4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .tab-btn.active { background-color: #ff69b4; color: white; border-color: #ff69b4; }
     </style>
 </head>
-<body class="text-gray-700 bg-pastel-bg antialiased">
+<body class="text-gray-700 pb-20 md:pb-0 antialiased">
 
-    <!-- Header / Navbar -->
-    <header class="sticky top-0 z-50 glass-card shadow-sm border-b border-pink-200">
+    <!-- Top Status Header Bar -->
+    <div class="bg-gradient-to-r from-pink-300 via-pink-400 to-pink-300 text-white py-2 px-4 text-center text-sm font-mali shadow-sm flex justify-between items-center max-w-full overflow-hidden">
+        <div class="flex items-center gap-2 mx-auto">
+            <span class="inline-block w-3 h-3 bg-green-400 rounded-full animate-ping"></span>
+            <span>สถานะคิวปัจจุบัน: <strong>รับเพิ่มอีก 3 คิวเท่านั้น!</strong> (อัปเดตผ่าน Google Sheet)</span>
+            <a href="#order" class="underline ml-2 hover:text-pink-100 font-bold">สั่งเลย ✨</a>
+        </div>
+    </div>
+
+    <!-- Desktop & Mobile Top Header Navigation -->
+    <header class="sticky top-0 z-40 glass-card shadow-sm">
         <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="#" class="font-mali text-xl font-bold text-pastel-dark flex items-center gap-2">
-                <i class="fa-solid font-heart text-pink-400"></i> Soft Pink Studio ✨
+            <a href="#" class="font-mali text-xl font-bold pink-gradient-text flex items-center gap-2">
+                <i class="fa-solid fa-wand-magic-sparkles text-pink-500"></i> Soft Pink Art Atelier
             </a>
-            <nav class="hidden md:flex space-x-6 text-pink-600 font-semibold">
-                <a href="#about" class="hover:text-pastel-dark transition">เกี่ยวกับ</a>
-                <a href="#gallery" class="hover:text-pastel-dark transition">ผลงาน</a>
-                <a href="#price" class="hover:text-pastel-dark transition">คำนวณราคา</a>
-                <a href="#queue" class="hover:text-pastel-dark transition">คิวงาน</a>
-                <a href="#order" class="hover:text-pastel-dark transition">สั่งจ้าง</a>
+            
+            <!-- Desktop Nav Menu Links -->
+            <nav class="hidden md:flex items-center space-x-6 text-pink-600 font-mali font-semibold text-sm">
+                <a href="#home" class="hover:text-pink-500 transition">หน้าแรก</a>
+                <a href="#gallery" class="hover:text-pink-500 transition">คลังผลงาน</a>
+                <a href="#calculator" class="hover:text-pink-500 transition">คำนวณราคา</a>
+                <a href="#tos" class="hover:text-pink-500 transition">ข้อตกลง (TOS)</a>
+                <a href="#order" class="hover:text-pink-500 transition">สั่งจ้างงาน</a>
             </nav>
-            <a href="#order" class="bg-pastel-pink hover:bg-pastel-dark text-white px-4 py-2 rounded-full font-mali text-sm font-semibold transition shadow-md">
-                <i class="fa-solid fa-paper-plane mr-1"></i> จ้างงาน
+
+            <a href="#order" class="hidden sm:inline-flex bg-gradient-to-r from-pink-400 to-pink-500 hover:from-pink-500 hover:to-pink-600 text-white px-5 py-2 rounded-full font-mali text-sm font-semibold shadow-md transition transform hover:scale-105">
+                <i class="fa-solid fa-heart mr-1.5 self-center"></i> เปิดรับจ้าง
             </a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="about" class="py-12 px-4 text-center max-w-4xl mx-auto">
-        <div class="inline-block px-4 py-1 bg-pink-100 text-pink-600 rounded-full text-sm font-semibold mb-4 border border-pink-300">
-            ✨ Status: OPEN FOR COMMISSION ✨
+    <!-- Hero Showcase Section -->
+    <section id="home" class="py-12 px-4 text-center max-w-4xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-pink-100 text-pink-600 rounded-full text-sm font-semibold mb-4 border border-pink-300 shadow-sm">
+            <i class="fa-solid fa-crown text-pink-500"></i> Welcome to My Commission Portfolio
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold text-pink-500 font-mali mb-4">
-            รับวาดรูปภาพประกอบ & แฟนอาร์ต ✨
+        <h1 class="text-4xl md:text-6xl font-bold font-mali mb-4 pink-gradient-text drop-shadow-sm">
+            รับวาดภาพประกอบ & ออกแบบตัวละคร ✨
         </h1>
-        <p class="text-lg text-pink-400 max-w-2xl mx-auto mb-6">
-            ยินดีต้อนรับสู่พื้นที่รวมผลงานวาดรูปสไตล์พาสเทลหวานๆ น่ารัก สามารถเช็คราคา คำนวณราคาก่อนสั่ง และติดตามคิวได้ที่นี่เลยค่ะ!
+        <p class="text-lg text-pink-600 max-w-2xl mx-auto mb-6 leading-relaxed">
+            สร้างสรรค์ลายเส้นพาสเทลสุดน่ารัก ละมุนหัวใจ ทั้งงาน Fanart, Original Character (OC), Chibi และนิยาย พร้อมระบบประเมินราคาและบรีฟงานอย่างเป็นระบบ
         </p>
     </section>
-        <!-- Gallery Section -->
+        <!-- Multi-Category Gallery Showcase -->
     <section id="gallery" class="py-10 max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center text-pink-500 font-mali mb-8">
-            🌸 ตัวอย่างผลงาน (Gallery)
-        </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <!-- Sample Card 1 -->
-            <div class="glass-card rounded-2xl overflow-hidden shadow-sm border border-pink-200 hover:shadow-md transition">
-                <img src="https://via.placeholder.com/400x400/FFB6C1/ffffff?text=Chibi+Art" alt="Chibi Art" class="w-full h-64 object-cover">
-                <div class="p-4">
-                    <h3 class="font-bold text-lg text-pink-600 font-mali">Chibi Style</h3>
-                    <p class="text-sm text-gray-500">เริ่มต้น 300 บาท / ตัวละคร</p>
-                </div>
-            </div>
-            <!-- Sample Card 2 -->
-            <div class="glass-card rounded-2xl overflow-hidden shadow-sm border border-pink-200 hover:shadow-md transition">
-                <img src="https://via.placeholder.com/400x400/FF69B4/ffffff?text=Bust-Up" alt="Bust-Up" class="w-full h-64 object-cover">
-                <div class="p-4">
-                    <h3 class="font-bold text-lg text-pink-600 font-mali">Bust-Up (ครึ่งตัว)</h3>
-                    <p class="text-sm text-gray-500">เริ่มต้น 500 บาท / ตัวละคร</p>
-                </div>
-            </div>
-            <!-- Sample Card 3 -->
-            <div class="glass-card rounded-2xl overflow-hidden shadow-sm border border-pink-200 hover:shadow-md transition">
-                <img src="https://via.placeholder.com/400x400/FF1493/ffffff?text=Full+Body" alt="Full Body" class="w-full h-64 object-cover">
-                <div class="p-4">
-                    <h3 class="font-bold text-lg text-pink-600 font-mali">Full Body (เต็มตัว)</h3>
-                    <p class="text-sm text-gray-500">เริ่มต้น 800 บาท / ตัวละคร</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Price Calculator Section -->
-    <section id="price" class="py-10 max-w-4xl mx-auto px-4">
-        <div class="glass-card rounded-3xl p-6 md:p-8 border border-pink-200 shadow-md">
-            <h2 class="text-2xl md:text-3xl font-bold text-pink-500 font-mali mb-6 text-center">
-                🧮 เครื่องคำนวณราคาประเมิน
+        <div class="text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold font-mali pink-gradient-text mb-2">
+                🎨 คลังผลงานรวบรวมตามหมวดหมู่
             </h2>
-            
-            <div class="space-y-4">
-                <!-- Scale Selection -->
-                <div>
-                    <label class="block font-semibold text-pink-600 mb-2">1. เลือกระดับสเกลงาน:</label>
-                    <select id="scaleSelect" onchange="calculatePrice()" class="w-full p-3 rounded-xl border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white">
-                        <option value="300">Chibi Style (300 ฿)</option>
-                        <option value="500" selected>Bust-Up / ครึ่งตัว (500 ฿)</option>
-                        <option value="800">Full Body / เต็มตัว (800 ฿)</option>
-                    </select>
-                </div>
+            <p class="text-pink-500 font-itim">คลิกเลือกหมวดหมู่ที่ต้องการชมเพื่อดูตัวอย่างงานและรายละเอียดเบื้องต้น</p>
+        </div>
 
-                <!-- Character Count -->
-                <div>
-                    <label class="block font-semibold text-pink-600 mb-2">2. จำนวนตัวละคร:</label>
-                    <input type="number" id="charCount" value="1" min="1" max="5" onchange="calculatePrice()" onkeyup="calculatePrice()" class="w-full p-3 rounded-xl border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white">
-                </div>
+        <!-- Filter Category Tabs -->
+        <div class="flex flex-wrap justify-center gap-2 md:gap-3 mb-8">
+            <button onclick="switchTab('all')" id="tab-all" class="tab-btn active px-5 py-2 rounded-full font-mali text-sm border border-pink-300 font-semibold shadow-sm transition hover:bg-pink-400 hover:text-white">
+                ✨ ทั้งหมด
+            </button>
+            <button onclick="switchTab('chibi')" id="tab-chibi" class="tab-btn px-5 py-2 rounded-full font-mali text-sm border border-pink-300 font-semibold shadow-sm transition hover:bg-pink-400 hover:text-white">
+                🧸 Chibi Style
+            </button>
+            <button onclick="switchTab('bustup')" id="tab-bustup" class="tab-btn px-5 py-2 rounded-full font-mali text-sm border border-pink-300 font-semibold shadow-sm transition hover:bg-pink-400 hover:text-white">
+                🎀 Bust-Up / ครึ่งตัว
+            </button>
+            <button onclick="switchTab('fullbody')" id="tab-fullbody" class="tab-btn px-5 py-2 rounded-full font-mali text-sm border border-pink-300 font-semibold shadow-sm transition hover:bg-pink-400 hover:text-white">
+                👗 Full Body / เต็มตัว
+            </button>
+            <button onclick="switchTab('character')" id="tab-character" class="tab-btn px-5 py-2 rounded-full font-mali text-sm border border-pink-300 font-semibold shadow-sm transition hover:bg-pink-400 hover:text-white">
+                📜 Character Design
+            </button>
+        </div>
 
-                <!-- Background -->
-                <div>
-                    <label class="block font-semibold text-pink-600 mb-2">3. ฉากหลัง:</label>
-                    <select id="bgSelect" onchange="calculatePrice()" class="w-full p-3 rounded-xl border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white">
-                        <option value="0">สีพื้น / ใส (ฟรี)</option>
-                        <option value="200">ฉากหลังแบบง่าย/ตกแต่ง (+200 ฿)</option>
-                        <option value="500">ฉากหลังละเอียด (+500 ฿)</option>
-                    </select>
+        <!-- Gallery Grid Content -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Chibi Item 1 -->
+            <div class="gallery-item chibi glass-card rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition transform hover:-translate-y-1">
+                <img src="https://via.placeholder.com/500x500/FFB6C1/ffffff?text=Chibi+Style+1" alt="Chibi Art" class="w-full h-64 object-cover">
+                <div class="p-5">
+                    <span class="inline-block px-3 py-0.5 bg-pink-100 text-pink-600 rounded-full text-xs font-semibold mb-2">Chibi</span>
+                    <h3 class="font-bold text-xl text-pink-600 font-mali mb-1">Chibi Full Color</h3>
+                    <p class="text-sm text-gray-500 mb-3">ลงสีตัดเส้นสะอาดตา สไตล์น่ารักตัวเล็ก</p>
+                    <div class="flex justify-between items-center text-sm font-semibold text-pink-500 border-t border-pink-100 pt-3">
+                        <span>เริ่มต้น 300 - 450 ฿</span>
+                        <a href="#order" class="hover:underline font-mali text-xs bg-pink-50 px-2.5 py-1 rounded-lg">สั่งสเกลนี้</a>
+                    </div>
                 </div>
+            </div>
 
-                <!-- Commercial Use -->
-                <div class="pt-2">
-                    <label class="flex items-center space-x-2 text-pink-600 font-semibold cursor-pointer">
-                        <input type="checkbox" id="commercialCheck" onchange="calculatePrice()" class="w-5 h-5 accent-pink-500 rounded">
-                        <span>เชิงพาณิชย์ (คิดราคา 2 เท่า / +100%)</span>
-                    </label>
+            <!-- BustUp Item 2 -->
+            <div class="gallery-item bustup glass-card rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition transform hover:-translate-y-1">
+                <img src="https://via.placeholder.com/500x500/FF69B4/ffffff?text=Bust-Up+Art" alt="Bust Up Art" class="w-full h-64 object-cover">
+                <div class="p-5">
+                    <span class="inline-block px-3 py-0.5 bg-pink-100 text-pink-600 rounded-full text-xs font-semibold mb-2">Bust-Up</span>
+                    <h3 class="font-bold text-xl text-pink-600 font-mali mb-1">Bust-Up / ช่วงอก</h3>
+                    <p class="text-sm text-gray-500 mb-3">เน้นงานสีหน้าและดีเทลส่วนบน นุ่มนวลละเอียด</p>
+                    <div class="flex justify-between items-center text-sm font-semibold text-pink-500 border-t border-pink-100 pt-3">
+                        <span>เริ่มต้น 500 - 750 ฿</span>
+                        <a href="#order" class="hover:underline font-mali text-xs bg-pink-50 px-2.5 py-1 rounded-lg">สั่งสเกลนี้</a>
+                    </div>
                 </div>
+            </div>
 
-                <!-- Total Price Display -->
-                <div class="mt-6 p-4 bg-pink-100 rounded-2xl text-center border border-pink-300">
-                    <span class="text-gray-600 font-semibold">ราคาประเมินรวมประมาณ:</span>
-                    <div class="text-3xl font-bold text-pastel-dark font-mali mt-1">
-                        <span id="totalPrice">500</span> บาท
+            <!-- Fullbody Item 3 -->
+            <div class="gallery-item fullbody glass-card rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition transform hover:-translate-y-1">
+                <img src="https://via.placeholder.com/500x500/FF1493/ffffff?text=Full+Body+Art" alt="Full Body Art" class="w-full h-64 object-cover">
+                <div class="p-5">
+                    <span class="inline-block px-3 py-0.5 bg-pink-100 text-pink-600 rounded-full text-xs font-semibold mb-2">Full Body</span>
+                    <h3 class="font-bold text-xl text-pink-600 font-mali mb-1">Full Body / เต็มตัว</h3>
+                    <p class="text-sm text-gray-500 mb-3">เก็บรายละเอียดเสื้อผ้า เครื่องประดับ จัดเต็ม</p>
+                    <div class="flex justify-between items-center text-sm font-semibold text-pink-500 border-t border-pink-100 pt-3">
+                        <span>เริ่มต้น 900 - 1,500 ฿</span>
+                        <a href="#order" class="hover:underline font-mali text-xs bg-pink-50 px-2.5 py-1 rounded-lg">สั่งสเกลนี้</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Character Design Item 4 -->
+            <div class="gallery-item character glass-card rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition transform hover:-translate-y-1">
+                <img src="https://via.placeholder.com/500x500/DB7093/ffffff?text=Character+Sheet" alt="Character Design" class="w-full h-64 object-cover">
+                <div class="p-5">
+                    <span class="inline-block px-3 py-0.5 bg-pink-100 text-pink-600 rounded-full text-xs font-semibold mb-2">Character Sheet</span>
+                    <h3 class="font-bold text-xl text-pink-600 font-mali mb-1">ออกแบบตัวละคร (Sheet)</h3>
+                    <p class="text-sm text-gray-500 mb-3">รวมภาพหน้า-หลัง + ดีเทลอุปกรณ์/ชุดเสริม</p>
+                    <div class="flex justify-between items-center text-sm font-semibold text-pink-500 border-t border-pink-100 pt-3">
+                        <span>เริ่มต้น 1,800 ฿</span>
+                        <a href="#order" class="hover:underline font-mali text-xs bg-pink-50 px-2.5 py-1 rounded-lg">สั่งสเกลนี้</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-        <!-- Queue Section -->
-    <section id="queue" class="py-10 max-w-4xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center text-pink-500 font-mali mb-8">
-            📌 ตารางคิวงาน (Queue Status)
-        </h2>
-        <div class="glass-card rounded-2xl p-6 border border-pink-200 shadow-sm space-y-4">
-            <div class="flex justify-between items-center border-b border-pink-100 pb-3">
-                <span class="font-bold text-pink-600">คิวที่ 1: คุณ A</span>
-                <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm font-semibold">เสร็จสิ้น ✨</span>
+        <!-- Price Calculator Section -->
+    <section id="calculator" class="py-10 max-w-4xl mx-auto px-4">
+        <div class="glass-card rounded-3xl p-6 md:p-8 border border-pink-200 shadow-lg">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl md:text-3xl font-bold font-mali pink-gradient-text mb-2">
+                    🧮 เครื่องคำนวณราคาประเมินเบื้องต้น
+                </h2>
+                <p class="text-sm text-pink-500">เลือกออปชันเพื่อประเมินงบประมาณก่อนกรอกแบบฟอร์มสั่งจ้าง</p>
             </div>
-            <div class="flex justify-between items-center border-b border-pink-100 pb-3">
-                <span class="font-bold text-pink-600">คิวที่ 2: คุณ B</span>
-                <span class="px-3 py-1 bg-yellow-100 text-yellow-600 rounded-full text-sm font-semibold">กำลังลงสี 🎨</span>
-            </div>
-            <div class="flex justify-between items-center border-b border-pink-100 pb-3">
-                <span class="font-bold text-pink-600">คิวที่ 3: คุณ C</span>
-                <span class="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-sm font-semibold">กำลังร่างภาพ ✏️</span>
-            </div>
-            <div class="flex justify-between items-center">
-                <span class="font-bold text-pink-600">คิวที่ 4: ว่าง</span>
-                <span class="px-3 py-1 bg-gray-100 text-gray-500 rounded-full text-sm font-semibold">รอดำเนินการ ⏳</span>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <!-- Scale Selection -->
+                    <div>
+                        <label class="block font-semibold text-pink-600 mb-1 text-sm">1. เลือกระดับสเกลงาน:</label>
+                        <select id="calcScale" onchange="updateCalc()" class="w-full p-3 rounded-2xl border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white text-sm">
+                            <option value="350">Chibi Style (350 ฿)</option>
+                            <option value="600" selected>Bust-Up / ช่วงอก (600 ฿)</option>
+                            <option value="950">Full Body / เต็มตัว (950 ฿)</option>
+                            <option value="1800">Character Sheet / ออกแบบ (1,800 ฿)</option>
+                        </select>
+                    </div>
+
+                    <!-- Character Count -->
+                    <div>
+                        <label class="block font-semibold text-pink-600 mb-1 text-sm">2. จำนวนตัวละคร:</label>
+                        <input type="number" id="calcCount" value="1" min="1" max="5" onchange="updateCalc()" onkeyup="updateCalc()" class="w-full p-3 rounded-2xl border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white text-sm">
+                    </div>
+
+                    <!-- Background Details -->
+                    <div>
+                        <label class="block font-semibold text-pink-600 mb-1 text-sm">3. รายละเอียดฉากหลัง:</label>
+                        <select id="calcBg" onchange="updateCalc()" class="w-full p-3 rounded-2xl border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white text-sm">
+                            <option value="0">สีพื้น / โปร่งใส (ฟรี)</option>
+                            <option value="250">ฉากหลังเรียบง่าย / ของตกแต่ง (+250 ฿)</option>
+                            <option value="600">ฉากหลังละเอียด / ทิวทัศน์ (+600 ฿)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="space-y-4 flex flex-col justify-between">
+                    <!-- Commercial Options -->
+                    <div class="space-y-3 bg-pink-50/60 p-4 rounded-2xl border border-pink-200">
+                        <label class="block font-semibold text-pink-600 text-sm mb-1">4. สิทธิ์การใช้งาน:</label>
+                        <label class="flex items-center space-x-2 text-sm text-pink-700 cursor-pointer">
+                            <input type="radio" name="commercialGroup" value="1" checked onchange="updateCalc()" class="accent-pink-500">
+                            <span>ใช้งานส่วนตัว (Personal Use)</span>
+                        </label>
+                        <label class="flex items-center space-x-2 text-sm text-pink-700 cursor-pointer">
+                            <input type="radio" name="commercialGroup" value="2" onchange="updateCalc()" class="accent-pink-500">
+                            <span>เชิงพาณิชย์ (Commercial Use) (+100%)</span>
+                        </label>
+                    </div>
+
+                    <!-- Total Price Card -->
+                    <div class="p-5 bg-gradient-to-r from-pink-200 to-pink-300 rounded-2xl text-center border border-pink-300 shadow-inner">
+                        <span class="text-pink-700 font-semibold text-sm">ราคาประเมินรวมโดยประมาณ:</span>
+                        <div class="text-3xl font-bold text-pink-600 font-mali mt-1">
+                            <span id="calcTotal">600</span> ฿
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- TOS / Do's & Don'ts -->
-    <section class="py-10 max-w-4xl mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="glass-card p-6 rounded-2xl border border-green-200">
-                <h3 class="text-xl font-bold text-green-600 font-mali mb-3">
-                    <i class="fa-solid fa-circle-check mr-1"></i> งานที่รับ (Do's)
-                </h3>
-                <ul class="list-disc list-inside text-gray-600 space-y-1">
-                    <li>Original Character (OC)</li>
-                    <li>Fanart จากอนิเมะ / เกม</li>
-                    <li>ชาย / หญิง / ชายรักชาย / หญิงรักหญิง</li>
-                    <li>ตัวละครสไตล์น่ารัก / พาสเทล</li>
-                </ul>
-            </div>
-            <div class="glass-card p-6 rounded-2xl border border-red-200">
-                <h3 class="text-xl font-bold text-red-500 font-mali mb-3">
-                    <i class="fa-solid fa-circle-xmark mr-1"></i> งานที่ไม่รับ (Don'ts)
-                </h3>
-                <ul class="list-disc list-inside text-gray-600 space-y-1">
-                    <li>งาน Gore / เลือดตกยางออกรุนแรง</li>
-                    <li>NSFW / ภาพอนาจาร</li>
-                    <li>งานเร่งด่วนแบบไม่มีการแจ้งล่วงหน้า</li>
-                    <li>แอบอ้างนำไปใช้ในงาน AI / NFT</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Order Form Section -->
-    <section id="order" class="py-10 max-w-4xl mx-auto px-4 mb-12">
-        <div class="glass-card rounded-3xl p-6 md:p-8 border border-pink-200 shadow-md">
-            <h2 class="text-2xl md:text-3xl font-bold text-pink-500 font-mali mb-6 text-center">
-                📝 สั่งจ้างงาน (Order Form)
+    <!-- TOS Section (Do's & Don'ts) -->
+    <section id="tos" class="py-10 max-w-4xl mx-auto px-4">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold font-mali pink-gradient-text mb-2">
+                📜 เงื่อนไขข้อตกลงในการสั่งงาน (TOS)
             </h2>
-            <div class="space-y-4">
-                <div>
-                    <label class="block font-semibold text-pink-600 mb-1">ชื่อ/นามนามแฝง ผู้สั่ง:</label>
-                    <input type="text" id="clientName" placeholder="เช่น คุณมัลลิ" class="w-full p-3 rounded-xl border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white">
-                </div>
-                <div>
-                    <label class="block font-semibold text-pink-600 mb-1">รายละเอียดตัวละคร / รายละเอียดงาน:</label>
-                    <textarea id="briefDetail" rows="4" placeholder="อธิบายลักษณะตัวละคร ท่าทาง หรือโทนสีที่ต้องการ..." class="w-full p-3 rounded-xl border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white"></textarea>
-                </div>
-                <div>
-                    <label class="block font-semibold text-pink-600 mb-1">ช่องทางติดต่อกลับ (Twitter / Discord / Facebook):</label>
-                    <input type="text" id="contactInfo" placeholder="เช่น @your_handle หรือ Discord Tag" class="w-full p-3 rounded-xl border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white">
-                </div>
-                <button onclick="copyOrderText()" class="w-full mt-4 bg-pastel-dark hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-2xl font-mali transition shadow-md flex items-center justify-center gap-2">
-                    <i class="fa-regular fa-copy"></i> คัดลอกรายละเอียดใบสั่งซื้อ
-                </button>
+            <p class="text-pink-500 font-itim">โปรดอ่านรายละเอียดและขอบเขตงานก่อนทำการสั่งจ้างนะคะ</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Do's Card -->
+            <div class="glass-card p-6 rounded-3xl border border-green-200 shadow-sm">
+                <h3 class="text-xl font-bold text-green-600 font-mali mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-green-500"></i> สิ่งที่รับวาด (Do's)
+                </h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> Original Character (OC) / ตัวละครออริจินัล</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> Fanart จากอนิเมะ, มังงะ, เกม</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> ชาย / หญิง / NL / BL / GL</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> สไตล์ชุดโลลิต้า / แฟนตาซี / พาสเทล</li>
+                </ul>
+            </div>
+
+            <!-- Don'ts Card -->
+            <div class="glass-card p-6 rounded-3xl border border-red-200 shadow-sm">
+                <h3 class="text-xl font-bold text-red-500 font-mali mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-xmark text-red-500"></i> สิ่งที่ไม่รับวาด (Don'ts)
+                </h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-xmark text-red-400 mt-1"></i> งาน NSFW / ภาพโป๊อนาจารรุนแรง</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-xmark text-red-400 mt-1"></i> งาน Gore / เลือดสยดสยอง</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-xmark text-red-400 mt-1"></i> สมจริง (Realism) / หุ่นยนต์จักรกลซับซ้อน</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-xmark text-red-400 mt-1"></i> นำภาพไปใช้ฝึก AI หรือขายทำ NFT เด็ดขาด</li>
+                </ul>
             </div>
         </div>
     </section>
+        <!-- Order Form Section -->
+    <section id="order" class="py-10 max-w-4xl mx-auto px-4 mb-16">
+        <div class="glass-card rounded-3xl p-6 md:p-8 border border-pink-200 shadow-xl">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl md:text-3xl font-bold font-mali pink-gradient-text mb-2">
+                    📝 แบบฟอร์มสั่งจ้างงาน (Detailed Order Form)
+                </h2>
+                <p class="text-sm text-pink-500">กรอกข้อมูลรายละเอียดบรีฟเพื่อสรุปใบสั่งซื้อ และนำไปคัดลอกส่งใน DM ได้เลยค่ะ</p>
+            </div>
+
+            <form id="commissionForm" onsubmit="return false;" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-semibold text-pink-600 mb-1 text-sm">ชื่อ/นามแฝง ผู้สั่ง:</label>
+                        <input type="text" id="orderClientName" placeholder="เช่น คุณมัลลิ" class="w-full p-3 rounded-2xl border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white text-sm">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-pink-600 mb-1 text-sm">ช่องทางติดต่อ (X / Discord / FB):</label>
+                        <input type="text" id="orderContact" placeholder="เช่น @your_handle" class="w-full p-3 rounded-2xl border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white text-sm">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-semibold text-pink-600 mb-1 text-sm">เลือกประเภทงาน:</label>
+                        <select id="orderScale" class="w-full p-3 rounded-2xl border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white text-sm">
+                            <option>Chibi Style</option>
+                            <option>Bust-Up / ช่วงอก</option>
+                            <option>Full Body / เต็มตัว</option>
+                            <option>Character Sheet / ออกแบบตัวละคร</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-pink-600 mb-1 text-sm">สิทธิ์การใช้งาน:</label>
+                        <select id="orderCommercial" class="w-full p-3 rounded-2xl border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white text-sm">
+                            <option>ส่วนตัว (Personal Use)</option>
+                            <option>เชิงพาณิชย์ (Commercial Use)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-semibold text-pink-600 mb-1 text-sm">รายละเอียดบรีฟตัวละคร (ลักษณะ / ท่าทาง / โทนสี / อารมณ์):</label>
+                    <textarea id="orderBrief" rows="4" placeholder="ระบุเพศ สีผม สีตา เสื้อผ้า โพสท่า หรือแนบลิงก์ไดรฟ์รูปภาพอ้างอิง..." class="w-full p-3 rounded-2xl border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white text-sm"></textarea>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-semibold text-pink-600 mb-1 text-sm">รายละเอียดฉากหลังที่ต้องการ:</label>
+                        <input type="text" id="orderBg" placeholder="เช่น สีพื้นใส / สวนดอกไม้พาสเทล" class="w-full p-3 rounded-2xl border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white text-sm">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-pink-600 mb-1 text-sm">กำหนดวันรับงาน (ถ้ามี):</label>
+                        <input type="text" id="orderDeadline" placeholder="เช่น ไม่เร่ง / ภายใน 15 วัน" class="w-full p-3 rounded-2xl border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white text-sm">
+                    </div>
+                </div>
+
+                <button onclick="copyFullOrder()" class="w-full mt-6 bg-gradient-to-r from-pink-400 to-pink-500 hover:from-pink-500 hover:to-pink-600 text-white font-bold py-3.5 px-6 rounded-2xl font-mali shadow-md transition transform hover:scale-[1.01] flex items-center justify-center gap-2">
+                    <i class="fa-regular fa-copy text-lg"></i> คัดลอกรายละเอียดใบสั่งซื้อลงคลิปบอร์ด
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Mobile Bottom Fixed Navigation Bar -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-t border-pink-200 py-2 px-4 md:hidden shadow-lg flex justify-around items-center text-xs font-mali text-pink-600">
+        <a href="#home" class="flex flex-col items-center hover:text-pink-400 transition">
+            <i class="fa-solid fa-house text-base mb-0.5"></i>
+            <span>หน้าแรก</span>
+        </a>
+        <a href="#gallery" class="flex flex-col items-center hover:text-pink-400 transition">
+            <i class="fa-solid fa-images text-base mb-0.5"></i>
+            <span>ผลงาน</span>
+        </a>
+        <a href="#calculator" class="flex flex-col items-center hover:text-pink-400 transition">
+            <i class="fa-solid fa-calculator text-base mb-0.5"></i>
+            <span>คำนวณ</span>
+        </a>
+        <a href="#tos" class="flex flex-col items-center hover:text-pink-400 transition">
+            <i class="fa-solid fa-scroll text-base mb-0.5"></i>
+            <span>เงื่อนไข</span>
+        </a>
+        <a href="#order" class="flex flex-col items-center hover:text-pink-400 transition">
+            <i class="fa-solid fa-pen-to-square text-base mb-0.5"></i>
+            <span>สั่งจ้าง</span>
+        </a>
+    </div>
 
     <!-- Footer -->
-    <footer class="bg-pink-100 border-t border-pink-200 py-6 text-center text-pink-500 font-mali text-sm">
-        <p>© 2026 Soft Pink Studio. All rights reserved. ✨</p>
+    <footer class="bg-pink-100/80 border-t border-pink-200 py-6 text-center text-pink-600 font-mali text-sm mb-12 md:mb-0">
+        <p>© 2026 Soft Pink Art Atelier. Created with ❤️ for Commission Artists.</p>
     </footer>
 
-    <!-- JavaScript Calculation Script -->
+    <!-- Interactive Scripts -->
     <script>
-        function calculatePrice() {
-            const scale = parseInt(document.getElementById('scaleSelect').value) || 0;
-            const count = parseInt(document.getElementById('charCount').value) || 1;
-            const bg = parseInt(document.getElementById('bgSelect').value) || 0;
-            const isCommercial = document.getElementById('commercialCheck').checked;
+        // Multi-Category Tab Switcher
+        function switchTab(category) {
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            const selectedBtn = document.getElementById('tab-' + category);
+            if (selectedBtn) selectedBtn.classList.add('active');
 
-            let total = (scale * count) + bg;
-            if (isCommercial) {
-                total = total * 2;
-            }
-
-            document.getElementById('totalPrice').innerText = total.toLocaleString();
+            const items = document.querySelectorAll('.gallery-item');
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
         }
 
-        function copyOrderText() {
-            const name = document.getElementById('clientName').value || 'ไม่ได้ระบุ';
-            const scaleText = document.getElementById('scaleSelect').options[document.getElementById('scaleSelect').selectedIndex].text;
-            const count = document.getElementById('charCount').value || '1';
-            const bgText = document.getElementById('bgSelect').options[document.getElementById('bgSelect').selectedIndex].text;
-            const isCommercial = document.getElementById('commercialCheck').checked ? 'ใช่ (เชิงพาณิชย์)' : 'ไม่ใช่ (ส่วนตัว)';
-            const price = document.getElementById('totalPrice').innerText;
-            const brief = document.getElementById('briefDetail').value || 'ไม่ได้ระบุ';
-            const contact = document.getElementById('contactInfo').value || 'ไม่ได้ระบุ';
+        // Price Calculator Function
+        function updateCalc() {
+            const scale = parseInt(document.getElementById('calcScale').value) || 0;
+            const count = parseInt(document.getElementById('calcCount').value) || 1;
+            const bg = parseInt(document.getElementById('calcBg').value) || 0;
+            
+            const commercialRadios = document.getElementsByName('commercialGroup');
+            let multiplier = 1;
+            for (const radio of commercialRadios) {
+                if (radio.checked) multiplier = parseInt(radio.value);
+            }
 
-            const summaryText = `🌸 ใบสั่งจ้างคอมมิชชัน 🌸\n` +
-                `---------------------------\n` +
-                `👤 ชื่อผู้สั่ง: ${name}\n` +
-                `🎨 สเกลงาน: ${scaleText}\n` +
-                `👥 จำนวนตัวละคร: ${count}\n` +
-                `🖼️ ฉากหลัง: ${bgText}\n` +
-                `💼 เชิงพาณิชย์: ${isCommercial}\n` +
-                `💰 ราคาประเมิน: ${price} บาท\n` +
-                `📝 บรีฟรายละเอียด: ${brief}\n` +
+            let total = ((scale * count) + bg) * multiplier;
+            document.getElementById('calcTotal').innerText = total.toLocaleString();
+        }
+
+        // Copy Detailed Order
+        function copyFullOrder() {
+            const name = document.getElementById('orderClientName').value || 'ไม่ได้ระบุ';
+            const contact = document.getElementById('orderContact').value || 'ไม่ได้ระบุ';
+            const scale = document.getElementById('orderScale').value;
+            const commercial = document.getElementById('orderCommercial').value;
+            const brief = document.getElementById('orderBrief').value || 'ไม่ได้ระบุ';
+            const bg = document.getElementById('orderBg').value || 'ไม่ระบุ / ฟรี';
+            const deadline = document.getElementById('orderDeadline').value || 'ไม่มีเร่งด่วน';
+            const estimatedPrice = document.getElementById('calcTotal').innerText;
+
+            const fullText = `🌸 ใบสั่งจ้างคอมมิชชัน / Commission Order 🌸\n` +
+                `----------------------------------------\n` +
+                `👤 ผู้สั่งจ้าง: ${name}\n` +
                 `📬 ช่องทางติดต่อ: ${contact}\n` +
-                `---------------------------`;
+                `🎨 ประเภทงาน: ${scale}\n` +
+                `💼 สิทธิ์การใช้งาน: ${commercial}\n` +
+                `🖼️ ฉากหลัง: ${bg}\n` +
+                `⏳ กำหนดส่ง: ${deadline}\n` +
+                `💰 ราคาประเมินเบื้องต้น: ~${estimatedPrice} บาท\n` +
+                `----------------------------------------\n` +
+                `📝 รายละเอียดบรีฟตัวละคร:\n${brief}\n` +
+                `----------------------------------------`;
 
-            navigator.clipboard.writeText(summaryText).then(() => {
-                alert('คัดลอกใบสั่งซื้อเรียบร้อยแล้วค่ะ! สามารถนำไปวางส่งใน DM ได้เลยนะคะ ✨');
+            navigator.clipboard.writeText(fullText).then(() => {
+                alert('✨ คัดลอกรายละเอียดใบสั่งซื้อเรียบร้อยแล้วค่ะ! นำไปวางส่งในแชต DM ได้เลยนะคะ');
             }).catch(err => {
-                alert('ไม่สามารถคัดลอกอัตโนมัติได้ กรุณาลองใหม่อีกครั้ง');
+                alert('คัดลอกไม่สำเร็จ กรุณาลองใหม่อีกครั้ง');
             });
         }
     </script>
